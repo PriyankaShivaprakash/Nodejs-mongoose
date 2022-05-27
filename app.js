@@ -17,18 +17,6 @@ app.use('/api/users',user)
 app.use('/api/roles',role)
 
 
-// app.post("/register", async (request, response) => {});
-// app.post("/login", async (request, response) => {});
-
-// app.get("/dump", async (request, response) => {
-//     try {
-//         var result = await UserModel.find().exec();
-//         response.send(result);
-//     } catch (error) {
-//         response.status(500).send(error);
-//     }
-// });
-
 app.listen(3000, () => {
     console.log("Listening at :3000...");
 });

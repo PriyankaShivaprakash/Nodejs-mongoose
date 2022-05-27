@@ -53,17 +53,3 @@ exports.user_delete = function(req,res){
 
 
 
-
-// exports.user_create =function (req,res) {
-//     let user = new User(
-//         {
-//             userid:
-//          req.body.userid,
-//             firstname:
-//         req.body.firstname,
-//             username:
-//         req.body.username,
-//             password:
-//         req.body.password
-
-//         }
