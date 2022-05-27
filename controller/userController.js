@@ -1,7 +1,7 @@
 const User = require('../model/userModel')
+const bcrypt = require("bcryptjs");
 
-exports.user_create =
-function (req,res) {
+exports.user_create =async (req,res) => {
     let user = new User(
         {
             userid:
@@ -15,7 +15,8 @@ function (req,res) {
 
         }
     );
-
+    const salt = await bcrypt.genSalt(10);
+    user.password = await bcrypt.hash(user.password, salt);
     user.save(function (err) {
         if (err) {
             return next(err);
@@ -48,3 +49,21 @@ exports.user_delete = function(req,res){
         res.send('Deleted!!');
     });
 };
+
+
+
+
+
+// exports.user_create =function (req,res) {
+//     let user = new User(
+//         {
+//             userid:
+//          req.body.userid,
+//             firstname:
+//         req.body.firstname,
+//             username:
+//         req.body.username,
+//             password:
+//         req.body.password
+
+//         }
